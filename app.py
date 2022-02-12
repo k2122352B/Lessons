@@ -3,18 +3,18 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "de82184f",
+   "id": "4ac538c5",
    "metadata": {},
    "outputs": [],
    "source": [
     "#caps sentitive\n",
-    "from flask import Flask\n"
+    "from flask import Flask"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "af47c378",
+   "id": "0abc1758",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -25,7 +25,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "28afa296",
+   "id": "694bd130",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -39,7 +39,7 @@
     "        rates=request.form.get(\"rates\")\n",
     "        print(rates)\n",
     "        model=joblib.load(\"DBS\")\n",
-    "        pred=model.predict([float[rates]])\n",
+    "        pred=model.predict([[float(rates)]])\n",
     "        print(pred)\n",
     "        s=\"The predicted DBS share price is \" +str(pred[0][0])\n",
     "        return(render_template(\"index.html\", result= s))\n",
@@ -50,7 +50,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "eaaa6936",
+   "id": "47ae494d",
    "metadata": {},
    "outputs": [
     {
@@ -69,7 +69,28 @@
      "output_type": "stream",
      "text": [
       " * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)\n",
-      "127.0.0.1 - - [12/Feb/2022 16:07:42] \"GET / HTTP/1.1\" 200 -\n"
+      "127.0.0.1 - - [12/Feb/2022 16:36:31] \"GET / HTTP/1.1\" 200 -\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1.3\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "127.0.0.1 - - [12/Feb/2022 16:36:34] \"POST / HTTP/1.1\" 200 -\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[24.44735922]]\n"
      ]
     }
    ],
@@ -78,6 +99,14 @@
     "if __name__==\"__main__\":\n",
     "    app.run()"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bdeca948",
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
